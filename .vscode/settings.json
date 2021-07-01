@@ -1,0 +1,17 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.base.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.controls.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.fxml.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.graphics.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.media.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.swing.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx.web.jar",
+        "c:\\Users\\Lailson\\Documents\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar",
+        "c:\\Users\\Lailson\\Desktop\\Linguagens de Programação\\Java\\Bibliotecas JAVA\\JSON\\jackson-annotations-2.12.3.jar",
+        "c:\\Users\\Lailson\\Desktop\\Linguagens de Programação\\Java\\Bibliotecas JAVA\\JSON\\jackson-core-2.12.3.jar",
+        "c:\\Users\\Lailson\\Desktop\\Linguagens de Programação\\Java\\Bibliotecas JAVA\\JSON\\jackson-databind-2.12.3.jar",
+        "c:\\Users\\Lailson\\Desktop\\Linguagens de Programação\\Java\\Bibliotecas JAVA\\JSOUP\\jsoup-1.13.1.jar"
+    ]
+}

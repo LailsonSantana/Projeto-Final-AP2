@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="textQuantidade" layoutX="132.0" layoutY="65.0" promptText="Quantidade :" />
+      <TextField fx:id="textValorUnitario" layoutX="132.0" layoutY="120.0" promptText="Valor Unitário :" />
+      <Button fx:id="btnSalvar" layoutX="207.0" layoutY="268.0" mnemonicParsing="false" onAction="#salvar" text="SALVAR" />
+      <Button fx:id="btnCancelar" layoutX="55.0" layoutY="268.0" mnemonicParsing="false" onAction="#cancelar" text="CANCELAR" />
+      <TextField fx:id="textCodigo" layoutX="132.0" layoutY="167.0" promptText="Codigo :" />
+      <Label layoutX="23.0" layoutY="69.0" text="Quantidade :" />
+      <ComboBox fx:id="comboConvert" layoutX="132.0" layoutY="216.0" prefWidth="150.0" promptText="Comprar com :" />
+   </children>
+</AnchorPane>
