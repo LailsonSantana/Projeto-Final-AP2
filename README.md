@@ -26,3 +26,34 @@
 
 ***
 
+![Tela Inicial](https://user-images.githubusercontent.com/70287747/124542248-6cfc4780-ddf9-11eb-8514-74d0b9e90498.png)
+
+***
+Integrantes do Grupo :
+Nome | Matrícula
+---|---
+Lailson Santana |201911924
+Mateus Dória |
+Jhonatas Rodrigues |
+
+***
+
+Comando `doc.getElementsByTag()`
+
+***
+
+```
+private String converterToJson(Dolar d){
+        String json = null;
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            json = mapper.writeValueAsString(d);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+```
+
+[Meu Facebook](https://www.facebook.com/lailson.santana.52)
+
