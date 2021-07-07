@@ -15,6 +15,7 @@ import modelo.Criptomoeda;
 public class CriptomoedaDados implements Serializable {
 
     public void cadastrarCriptomoeda (Criptomoeda c) throws FileNotFoundException, IOException, ClassNotFoundException{
+        
         ArrayList <Criptomoeda> criptomoedas = new ArrayList<>();
         File arq = new File ("listaCriptomoedas.ser");
         if (arq.exists()){
@@ -27,6 +28,7 @@ public class CriptomoedaDados implements Serializable {
             gravarObj.writeObject(criptomoedas);
         }
         System.out.println("Veio no adicionar");
+        
     }
     
     public ArrayList<Criptomoeda> listarCriptomoedas() throws FileNotFoundException, IOException, ClassNotFoundException{
@@ -90,6 +92,20 @@ public class CriptomoedaDados implements Serializable {
         try (ObjectOutputStream gravarObj = new ObjectOutputStream(fluxo)) {
             gravarObj.writeObject(criptomoedas);
         }
+    }
+
+    public boolean pesquisarCriptomoeda(String nome) throws IOException, ClassNotFoundException{
+        ArrayList<Criptomoeda> criptomoedas = new ArrayList();
+        File arq = new File ("listaCriptomoedas.ser");
+        FileInputStream fluxo = new FileInputStream(arq);
+        ObjectInputStream lerObj = new ObjectInputStream(fluxo);
+        criptomoedas = (ArrayList<Criptomoeda>) lerObj.readObject();
+        for(Criptomoeda c:criptomoedas){
+            if(c.getNome().equals(nome)){
+                return true;
+            }
+        }
+        return false;
     }
 
     

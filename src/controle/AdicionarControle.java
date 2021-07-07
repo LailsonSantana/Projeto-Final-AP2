@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dados.CriptomoedaDados;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,28 +40,55 @@ public class AdicionarControle implements Initializable {
     }
 
     public void salvar(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException{
-        CriptomoedaDados cd = new CriptomoedaDados();
-        String nome = textNome.getText();
-        String codigo = textCodigo.getText();
-        Criptomoeda c = new Criptomoeda(nome,codigo);
-        cd.cadastrarCriptomoeda(c);
-        mensagemInformativa();
+        MainControle controle = new MainControle();
+        try{
+            CriptomoedaDados cd = new CriptomoedaDados();
+            String nome = textNome.getText();
+            if(!(cd.pesquisarCriptomoeda(nome))){
+                String codigo = textCodigo.getText();
+            Criptomoeda c = new Criptomoeda(nome,codigo);
+            cd.cadastrarCriptomoeda(c);
+        
+            Stage stage =  (Stage) btnSalvar.getScene().getWindow();
+            stage.getOnCloseRequest().handle(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
+            stage.close();
+            mensagemInformativa("Criptomoeda adicionada com sucesso");
+            }
+            else{
+                mensagemInformativa("Essa criptomoeda já existe na lista");
+            }
+            System.out.println(cd.pesquisarCriptomoeda(nome));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+    
+        
+    
+
+    
+
+    
+
+    public void atualizarTabelaP(){
+        
     }
 
-    public void mensagemInformativa(){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        
+    public void mensagemInformativa(String mensagem){
+        //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("INFO");
         alert.setHeaderText(null);
-        alert.setContentText("Criptomoeda adicionada com sucesso !");
-        
+        alert.setContentText(mensagem);
         alert.show();
+        
     }
 
     public void cancelar(ActionEvent event) {
             
-            Stage stage =  (Stage) btnCancelar.getScene().getWindow();
-            //stage.getOnCloseRequest().handle(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
+            Stage stage =  (Stage) btnSalvar.getScene().getWindow();
             stage.close();
         
         

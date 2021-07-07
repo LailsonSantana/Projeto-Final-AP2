@@ -2,14 +2,11 @@ package controle;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dados.CapturarInformacoes;
 import dados.CotacaoDolar;
 import dados.CriptomoedaDados;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modelo.Criptomoeda;
+import javafx.stage.WindowEvent;
 
 
 public class MainControle implements Initializable{
@@ -77,6 +75,19 @@ public class MainControle implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle arg1) {
 
+        try {
+            carregarLista();
+        } catch (ClassNotFoundException | IOException e1) {
+            
+            e1.printStackTrace();
+        }
+        try {
+            atualizar2();
+        } catch (ClassNotFoundException | IOException e1) {
+            e1.printStackTrace();
+        }
+        
+
         carregarImagem();
         try {
             carregarLista();
@@ -95,6 +106,10 @@ public class MainControle implements Initializable{
         Image im = new Image("/dados/cripto.jpg");
         imageCripto.setImage(im);
     }
+
+    public TableView retornarTabela(){
+        return this.tableCripto;
+    }
         
         
     
@@ -109,6 +124,16 @@ public class MainControle implements Initializable{
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                try {
+                    atualizar2();
+                } catch (ClassNotFoundException | IOException e) {
+                    
+                    e.printStackTrace();
+                }
+            }
+        });
         stage.setTitle("Adicionar");
         stage.show();
     }
@@ -143,6 +168,14 @@ public class MainControle implements Initializable{
 
     public void atualizar(ActionEvent event) throws FileNotFoundException, ClassNotFoundException, IOException{
         System.out.println("Atualizar está sendo chamado");
+        carregarLista();
+        tableCripto.setItems(listaCriptomoedas);
+        tableCripto.refresh();
+        
+    }
+
+    public void atualizar2() throws FileNotFoundException, ClassNotFoundException, IOException{
+        System.out.println("Atualizar 2 está sendo chamado");
         carregarLista();
         tableCripto.setItems(listaCriptomoedas);
         

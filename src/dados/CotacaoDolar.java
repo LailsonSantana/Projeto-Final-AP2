@@ -45,7 +45,6 @@ public class CotacaoDolar {
             e.printStackTrace();
         }
         return json;
-        
     }
 
 
